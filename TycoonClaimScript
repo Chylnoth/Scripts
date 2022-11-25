@@ -1,0 +1,66 @@
+-- Part 1) It Doesn't Matter The Size You'll Need a Part for a Tycoon Claim
+
+-- Part 2) Add ProximityPrompt or ClickDetector to the Part
+
+-- Part 1) (Proximity Prompt) Create a scripts for ProximityPrompt
+
+-- Part 1) (ClickDetector) Create a scripts for ClickDetector
+
+-- Part 2) (Proximity Prompt) Paste This Script Into [
+local Proximity = script.Parent.Parent.ProximityPrompt
+
+Proximity.Triggered:Connect(function(player)
+	if player ~= nil then
+		local PlayerStats = game.ServerStorage.PlayerMoney:FindFirstChild(player.Name)
+		if PlayerStats ~= nil then
+			local ownstycoon = PlayerStats:FindFirstChild("OwnsTycoon")
+			if ownstycoon ~= nil then
+				if ownstycoon.Value == nil then
+					if script.Parent.Parent.Parent.Owner.Value == nil then
+						if player.Character:FindFirstChild("Humanoid") then
+							if player.Character.Humanoid.Health > 0 then
+								script.Parent.Parent.Parent.Owner.Value = player
+								ownstycoon.Value = script.Parent.Parent.Parent
+								script.Parent.Name = player.Name.."'s Tycoon"
+								script.Parent.Parent.Text = player.Name.." Tycoon"
+								player.TeamColor = script.Parent.Parent.Parent.TeamColor.Value
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+]
+
+-- Part 2) (Click Detector) Paste This Script Into [
+local ClickDetector = script.Parent.Parent.ClickDetector
+
+ClickDetector.MouseClick:Connect(function(hit)
+  local player = hit.Parent:FindFirstChild("Humanoid")
+	if player ~= nil then
+		local PlayerStats = game.ServerStorage.PlayerMoney:FindFirstChild(player.Name)
+		if PlayerStats ~= nil then
+			local ownstycoon = PlayerStats:FindFirstChild("OwnsTycoon")
+			if ownstycoon ~= nil then
+				if ownstycoon.Value == nil then
+					if script.Parent.Parent.Parent.Owner.Value == nil then
+						if player.Character:FindFirstChild("Humanoid") then
+							if player.Character.Humanoid.Health > 0 then
+								script.Parent.Parent.Parent.Owner.Value = player
+								ownstycoon.Value = script.Parent.Parent.Parent
+								script.Parent.Name = player.Name.."'s Tycoon"
+								script.Parent.Parent.Text = player.Name.." Tycoon"
+								player.TeamColor = script.Parent.Parent.Parent.TeamColor.Value
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+]
+
+-- Part 3) Now Your System Is Ready You Can Test It Have Fun!
