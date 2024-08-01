@@ -1,1 +1,1 @@
-while wait(0.01) do local v0={[1]="ddolmu\197\159"};game:GetService("ReplicatedStorage").tpevent:FireServer(unpack(v0));end
+game.Players.LocalPlayer:Kick("Türkhaven Fixed!")
